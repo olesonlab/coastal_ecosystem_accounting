@@ -1,0 +1,12 @@
+---
+title: "The Hawaiian Model: Assessing, Valuing, and Integrating Nature’s Services for Institutional Conservation Choices"
+subtitle: "The economy both depends on and impacts ecosystem functions, yet this relationship is generally overlooked. As a result, ecosystems are degraded and depleted through economic activity, with high hidden costs. Similarly, the welfare-enhancing benefits of ecosystem protection and restoration are underestimated and thus under-resourced. Natural Capital Accounting has a goal to reconcile ecological measurement and economic measurement, to improve macroeconomic policy. This research programʻs goal is to apply natural capital accounting in the Main Hawaiian Islands (MHI) to systematically assess how coastal ecosystems contribute to the economy and social and economic resilience. "
+format:
+  html: 
+    toc-title: "Contents"
+author:
+  - name: Louis BC Chua
+  - name: Ela Ural
+  - name: Alemarie Ceria
+  - name: Kirsten LL Oleson
+---

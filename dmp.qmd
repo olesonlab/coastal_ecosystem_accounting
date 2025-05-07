@@ -1,0 +1,235 @@
+---
+title: "Data Management Plan"
+format:
+  html: 
+    toc-title: "Contents"
+---
+
+## Data Collection
+
+### What data will you collect or create?
+
+#### Collect
+
+Data sources for ecosystem extent (terrestrial and marine):
+
++---------------------------------+----------------------+-----------------------------------------------------------------+--------------------+
+| **Ecosystem Type**              | **Dates Available**  | **Data Source**                                                 | **Likelihood of**  |
+|                                 |                      |                                                                 |                    |
+|                                 |                      |                                                                 | **Future Updates** |
++---------------------------------+----------------------+-----------------------------------------------------------------+--------------------+
+| 1.  Developed                   | 2000-2020            | USGS Land Change Monitoring, Assessment, and Projection (LCMAP) | Very High          |
+|                                 |                      |                                                                 |                    |
+| 2.  Grass/ Shrub                |                      |                                                                 |                    |
+|                                 |                      |                                                                 |                    |
+| 3.  Tree Cover                  |                      |                                                                 |                    |
+|                                 |                      |                                                                 |                    |
+| 4.  Wetland                     |                      |                                                                 |                    |
+|                                 |                      |                                                                 |                    |
+| 5.  Barren                      |                      |                                                                 |                    |
++---------------------------------+----------------------+-----------------------------------------------------------------+--------------------+
+| 6.  Cropland                    | 2015, 2020           | State of Hawaiʻi Agriculture Land Use Census                    | High               |
+|                                 |                      |                                                                 |                    |
+| 7.  Pasture                     |                      |                                                                 |                    |
++---------------------------------+----------------------+-----------------------------------------------------------------+--------------------+
+| 8.  Wetland                     | 2018                 | National Wetland Inventory (NWI)                                | High               |
+|                                 |                      |                                                                 |                    |
+|                                 |                      | \                                                               |                    |
+|                                 |                      |                                                                 |                    |
+|                                 |                      | LCMAP (fresh?)                                                  |                    |
++---------------------------------+----------------------+-----------------------------------------------------------------+--------------------+
+| 9.  Beaches/                    | 2010/ 2011,          | NOAA Coastal Change Analysis Program (C-CAP)                    | High               |
+|                                 |                      |                                                                 |                    |
+| Sand Dunes                      | \                    | \                                                               |                    |
+|                                 | \                    |                                                                 |                    |
+|                                 | \                    | USDA Soil Survey Geographic Database (SSURGO)                   |                    |
+|                                 |                      |                                                                 |                    |
+|                                 | Historic (not dated) |                                                                 |                    |
++---------------------------------+----------------------+-----------------------------------------------------------------+--------------------+
+| 10. Coral Dominated Hard Bottom | 2014                 | Hawaiʻi Monitoring and Reporting Collaborative (HIMARC)         | Very High          |
+|                                 |                      |                                                                 |                    |
+| 11. Other Hard Bottom           |                      |                                                                 |                    |
+|                                 |                      |                                                                 |                    |
+| 12. Pavement                    |                      |                                                                 |                    |
+|                                 |                      |                                                                 |                    |
+| 13. Soft Bottom                 |                      |                                                                 |                    |
+|                                 |                      |                                                                 |                    |
+| 14. Rock/ Boulder               |                      |                                                                 |                    |
+|                                 |                      |                                                                 |                    |
+| 15. Open Ocean                  |                      |                                                                 |                    |
++---------------------------------+----------------------+-----------------------------------------------------------------+--------------------+
+
+Data sources for ecosystem condition (terrestrial):
+
++-----------------------------------------------------+-----------+-------------------------------------------------+---------------------------+
+| **Ecosystem Condition Typology groups and classes** | **Date**  | **Data Source**                                 | **Details**               |
++-----------------------------------------------------+-----------+-------------------------------------------------+---------------------------+
+| **Group A: Abiotic ecosystem characteristics**      |           |                                                 |                           |
++-----------------------------------------------------+-----------+-------------------------------------------------+---------------------------+
+| **Class A1. Physical state characteristics**        |           |                                                 |                           |
++-----------------------------------------------------+-----------+-------------------------------------------------+---------------------------+
+| Dominant soil composition                           | 2010-2014 | Hawaiʻi Soil Atlas                              | Vector                    |
++-----------------------------------------------------+-----------+-------------------------------------------------+---------------------------+
+| Soil order                                          |           |                                                 |                           |
++-----------------------------------------------------+-----------+-------------------------------------------------+---------------------------+
+| **Class A2. Chemical state characteristics**        |           |                                                 |                           |
++-----------------------------------------------------+-----------+-------------------------------------------------+---------------------------+
+| Monthly mean peak rainfall                          | 2015      | Hawaiʻi Climate Data Portal (HCDP)              | Raster (2m x 2m; at best) |
++-----------------------------------------------------+-----------+-------------------------------------------------+---------------------------+
+| Monthly mean rainfall                               |           |                                                 |                           |
++-----------------------------------------------------+-----------+-------------------------------------------------+---------------------------+
+| Nutrient holding capacity                           | 2010-2014 | Hawaiʻi Soil Atlas                              | Vector                    |
++-----------------------------------------------------+-----------+-------------------------------------------------+---------------------------+
+| **Group B: Biotic ecosystem characteristics**       |           |                                                 |                           |
++-----------------------------------------------------+-----------+-------------------------------------------------+---------------------------+
+| **Class B1. Compositional state characteristics**   |           |                                                 |                           |
++-----------------------------------------------------+-----------+-------------------------------------------------+---------------------------+
+| Alien/ alien mix species                            | 2014      | USGS Hawaiʻi Land Cover and Habitat Status      | Raster (30m x 30m)        |
++-----------------------------------------------------+-----------+-------------------------------------------------+---------------------------+
+| (Native) Coastal vegetation quality                 | 2013-2015 | USGS Hawaiian Islands Coastal Vegetation Survey | Vector                    |
++-----------------------------------------------------+-----------+-------------------------------------------------+---------------------------+
+| Dune Environment                                    |           |                                                 |                           |
++-----------------------------------------------------+-----------+-------------------------------------------------+---------------------------+
+| Moisture zones (1-7)                                | 2012      | Price, J.P., Jacobi, J.D., 2012                 | Vector                    |
+|                                                     |           |                                                 |                           |
+|                                                     | \         |                                                 |                           |
++-----------------------------------------------------+-----------+-------------------------------------------------+---------------------------+
+| **Class B3. Functional state characteristics**      |           |                                                 |                           |
++-----------------------------------------------------+-----------+-------------------------------------------------+---------------------------+
+| Stream habitat condition score                      | 2015      | NFHP                                            | Vector                    |
++-----------------------------------------------------+-----------+-------------------------------------------------+---------------------------+
+
+Data sources for ecosystem condition (nearshore marine; within Moku):
+
+|                                                             |                  |                                             |                               |
+|-------------------------------------------------------------|------------------|---------------------------------------------|-------------------------------|
+| **Ecosystem Condition Typology groups and classes**         | **Date**         | **Data Source**                             | **Details**                   |
+| **Group A: Abiotic ecosystem characteristics**              |                  |                                             |                               |
+| **Class A1. Physical state characteristics**                |                  |                                             |                               |
+| Wave Power; long term mean                                  | 2000-2013        | Ocean Tipping Points                        | Raster (modeled; 500m x 500m) |
+| Sea Surface Temperature (SST)                               | 2013, 2016, 2019 | NOAA National Coral Reef Monitoring Program | Vector                        |
+| Photosynthetically Active Radiation (PAR)                   |                  |                                             |                               |
+| Degree Heating Weeks                                        |                  |                                             |                               |
+| kd490                                                       |                  |                                             |                               |
+| **Class A2. Chemical state characteristics**                |                  |                                             |                               |
+| Nearshore Sediment                                          | 2000-2013        | Ocean Tipping Points                        | Raster (modeled; 500m x 500m) |
+| Phosphorus Flux from On-site Sewage Disposal Systems (OSDS) | 2000-2013        | Ocean Tipping Points                        | Raster (modeled; 500m x 500m) |
+| Nitrogen Flux from On-site Sewage Disposal Systems (OSDS)   | 2000-2013        | Ocean Tipping Points                        | Raster (modeled; 500m x 500m) |
+| Total Effluent from On-site Sewage Disposal Systems (OSDS)  | 2000-2013        | Ocean Tipping Points                        | Raster (modeled; 500m x 500m) |
+| Chlorophyll-a                                               | 2013, 2016, 2019 | NOAA National Coral Reef Monitoring Program | Vector                        |
+| **Group B: Biotic ecosystem characteristics**               |                  |                                             |                               |
+| **Class B1. Compositional state characteristics**           |                  |                                             |                               |
+| Coral Cover                                                 | 2013, 2016, 2019 | NOAA National Coral Reef Monitoring Program | Vector                        |
+| Adult Coral Density                                         |                  |                                             |                               |
+| Coral Diversity                                             |                  |                                             |                               |
+| Juvenile Coral Density                                      |                  |                                             |                               |
+| **Class B2. Structural state characteristics**              |                  |                                             |                               |
+| Primary Consumers                                           | 2013, 2016, 2019 | NOAA National Coral Reef Monitoring Program | Vector                        |
+| Secondary Consumers                                         |                  |                                             |                               |
+| Planktivores                                                |                  |                                             |                               |
+| Piscivores                                                  |                  |                                             |                               |
+| **Class B3. Functional state characteristics**              |                  |                                             |                               |
+| Total Disease Prevalence                                    | 2013, 2016, 2019 | NOAA National Coral Reef Monitoring Program | Vector                        |
+| **Group C: Landscape ecosystem characteristics**            |                  |                                             |                               |
+| **Class C1. Landscape/seascape state characteristics**      |                  |                                             |                               |
+| Coastal Habitat Modification                                | 2000-2013        | Ocean Tipping Points                        | Raster (modeled; 500m x 500m) |
+
+#### Create
+
+-   Service and Monetary Flow Accounts - Fisheries Ecosystem Service
+
+    -   MHI Fish Species Over Ecosystem Type (FSOET) dataset
+
+### How will the data be collected or created?
+
+-   Programmatic data acquisition using R scripts to automate the direct download of spatial and temporal environmental datasets from specified URLs provided by governmental agencies
+
+<!-- -   Project organization: -->
+
+<!-- -   Style guide: -->
+
+<!-- -   GitHub repository: -->
+
+-   Quality assurance measures:
+
+    -   Data acquisition
+
+        -   Automated download verification
+
+        -   Checksum validation
+
+        -   File format verification
+
+    -   Data integrity and consistency checks
+
+        -   Metadata comparison
+
+        -   Schema validation
+
+        -   Missing or corrupt data detection
+
+        -   Outlier detection
+
+        -   Temporal consistency
+
+    -   Spatial data quality control
+
+        -   Projection consistency
+
+        -   Geospatial accuracy checks
+
+        -   Resolution and pixel size validation
+
+    -   Version control and documentation
+
+        -   Automated logging and versioning
+
+        -   Data provenance tracking
+
+        -   Reproducibility and workflow automation
+
+    -   Error handling and anomoly detection
+
+        -   Threshold-based alerts
+        -   Automated data quality reports
+
+## Documentation and Metadata
+
+### What documentation and metadata will accompany the data?
+
+The data will be documented to ensure future readability and usability, including details on provenance, structure, methodologies, and assumptions.
+A Quarto website will capture data collection and processing steps, a data source catalog, a data dictionary, and an interactive app.
+Documentation will include a README, structured metadata files (YAML/JSON/XML), and versioning logs tracked via GitHub.
+Metadata will follow ISO 19115 (geospatial), Dublin Core, and EML (ecological) to standardize dataset descriptions, including creator details, title, date, format, and licensing.
+The data dictionary will define variables, units, classifications, and vocabularies, while methodology and analytical procedures will be documented within Quarto reports.
+Licensing and access conditions will be clearly specified, ensuring data discoverability and reuse in accordance with community standards.
+
+<!-- ## Ethics and Legal Compliance -->
+
+<!-- ### How will you manage any ethical issues? -->
+
+<!-- ### How will you manage copyright and Intellectual Property Rights (IP/IPR) issues? -->
+
+<!-- ## Storage and Backup -->
+
+<!-- ### How will the data be stored and backed up during the research? -->
+
+<!-- ### How will you manage access and security? -->
+
+<!-- ## Selection and Preservation -->
+
+<!-- ### Which data are of long-term value and should be retained, shared, and/or preserved? -->
+
+<!-- ### What is the long-term preservation plan for the dataset? -->
+
+<!-- ## Data Sharing -->
+
+<!-- ### How will you share the data? -->
+
+<!-- ### Are any restrictions on data sharing required? -->
+
+<!-- ## Responsibilities and Resources -->
+
+<!-- ### Who will be responsible for data management? -->
+
+<!-- ### What resources will you require to deliver your plan? -->

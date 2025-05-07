@@ -1,0 +1,52 @@
+project:
+  type: website
+  output-dir: docs
+  # preview: 
+  #   port: 1200
+  #   browser: true
+
+website:
+  title: "Coastal Ecosystem Accounting"
+  back-to-top-navigation: true
+  search: true
+  navbar: 
+    background: white
+    search: true
+    left:
+      - text: "About"
+        href: index.qmd
+      - text: "Data Management Plan"
+        href: dmp.qmd
+      - text: "Data Processing"
+        menu:
+          - text: "Extents and Conditions"
+            href: data_processing/ecosystem‐change.qmd
+          - text: "Fisheries Valuation"
+            href: data_processing/fisheries‐valuation.qmd
+      - text: "Applications"
+        menu:
+          - text: "Extents and Conditions"
+            href: extents_and_conditions/extents_and_conditions_app.qmd
+          - text: "Fisheries Valuation"
+            href: fisheries/fisheries_app.qmd
+  page-footer: |
+    ![](/assets/logos/uhm_logo.png){width=40%}
+    <br><br>
+        
+format:
+  html:
+    theme: litera
+    page-layout: full
+    link-external-newwindow: true
+    code-overflow: wrap
+    code-annotations: hover
+    # code-tools: true
+    smooth-scroll: true
+    toc: true
+    toc-depth: 4
+    toc-location: left
+
+execute:
+  message: false
+  warning: false
+  echo: true
