@@ -1,9 +1,9 @@
 project:
   type: website
   output-dir: docs
-  # preview: 
-  #   port: 1200
-  #   browser: true
+  preview: 
+    port: 1200
+    browser: true
 
 website:
   title: "Coastal Ecosystem Accounting"
