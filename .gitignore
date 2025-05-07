@@ -54,3 +54,5 @@ rsconnect/
 # Data folders
 **/data/
 
+# Upload directory to shared Google Drive
+google_drive_upload.R
