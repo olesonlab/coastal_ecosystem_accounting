@@ -1,8 +1,13 @@
 ---
-format: gfm
+format:
+  gfm:
+    toc: true
+    toc-title: "Contents"
 ---
 
 # The Hawaiian Model: Assessing, Valuing, and Integrating Nature’s Services for Institutional Conservation Choices
+
+## Project Structure
 
 ```markdown
 📂 coastal_ecosystem_accounting
@@ -31,4 +36,18 @@ format: gfm
 ├── 📄 project.Rproj
 └── 📂 renv/
 └── 📄 renv.lock
+```
+## R Session
+
+```{r packages, echo=FALSE, message=FALSE, warning=FALSE}
+# Load required libraries
+if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
+if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")
+
+library(renv)
+library(pak)
+```
+
+```{r session-info, echo=FALSE}
+sessionInfo()
 ```
