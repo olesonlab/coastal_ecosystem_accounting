@@ -1,0 +1,134 @@
+{
+  "version": 1,
+  "locale": "C",
+  "platform": "4.4.3",
+  "metadata": {
+    "appmode": "quarto-static",
+    "primary_rmd": "index.qmd",
+    "primary_html": null,
+    "content_category": null,
+    "has_parameters": false
+  },
+  "quarto": {
+    "version": "1.7.29",
+    "engines": ["markdown"]
+  },
+  "packages": null,
+  "files": {
+    "_quarto.yml": {
+      "checksum": "c53111e2248b108d9bd57eb9ec636d5e"
+    },
+    ".Rprofile": {
+      "checksum": "30eebf7239bfdb8cf55e65bfc4637160"
+    },
+    "about.qmd": {
+      "checksum": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "apps/extents_and_conditions/extents_and_conditions_app.qmd": {
+      "checksum": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "apps/fisheries/fisheries_app.qmd": {
+      "checksum": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "assets/logos/uhm_logo.png": {
+      "checksum": "cc630d591e16fc5cfdbdc0a7f5493e73"
+    },
+    "assets/styles/styles.scss": {
+      "checksum": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "dmp.qmd": {
+      "checksum": "5ab048522324c9027a26d1343800444d"
+    },
+    "docs/about.html": {
+      "checksum": "6ab8a01c4b58f0601c8c50d9131ef70e"
+    },
+    "docs/apps/extents_and_conditions/extents_and_conditions_app.html": {
+      "checksum": "ac151ac5a53f17884c1ac4c3e3093670"
+    },
+    "docs/apps/fisheries/fisheries_app.html": {
+      "checksum": "52c958b9e8c64fc7b2bb24edcad3ddaf"
+    },
+    "docs/assets/logos/uhm_logo.png": {
+      "checksum": "cc630d591e16fc5cfdbdc0a7f5493e73"
+    },
+    "docs/dmp.html": {
+      "checksum": "149d2bc6a91fa26e0dc1c160039a1bbf"
+    },
+    "docs/index.html": {
+      "checksum": "7632b1841448847f2eb5effcc65d86d8"
+    },
+    "docs/search.json": {
+      "checksum": "637744891a034b2ad025039c98997408"
+    },
+    "docs/site_libs/bootstrap/bootstrap-19453029e3b37bc63be85bb2174e4b51.min.css": {
+      "checksum": "19453029e3b37bc63be85bb2174e4b51"
+    },
+    "docs/site_libs/bootstrap/bootstrap-icons.css": {
+      "checksum": "2318f137d201fbf51601fa0faba6bef7"
+    },
+    "docs/site_libs/bootstrap/bootstrap-icons.woff": {
+      "checksum": "1a51dfbe5467607389d603c02a77cd10"
+    },
+    "docs/site_libs/bootstrap/bootstrap.min.js": {
+      "checksum": "e2b09c06f0e714b6144a6788a28e3950"
+    },
+    "docs/site_libs/clipboard/clipboard.min.js": {
+      "checksum": "15f52a1ee547f2bdd46e56747332ca2d"
+    },
+    "docs/site_libs/quarto-html/anchor.min.js": {
+      "checksum": "91bcf6cd1fd88fec3f109811e5fc3546"
+    },
+    "docs/site_libs/quarto-html/popper.min.js": {
+      "checksum": "3a4a291ccf3f1ea0f82b641542fd3827"
+    },
+    "docs/site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css": {
+      "checksum": "0815c480559380816a4d1ea211a47e91"
+    },
+    "docs/site_libs/quarto-html/quarto.js": {
+      "checksum": "6f4245742deb3cc92337dbe2701ccfe1"
+    },
+    "docs/site_libs/quarto-html/tabsets/tabsets.js": {
+      "checksum": "e8d6a8862b33ccc461f8fd532e05b365"
+    },
+    "docs/site_libs/quarto-html/tippy.css": {
+      "checksum": "ebd6f8ce46a677e1a4f5f8a8317109a9"
+    },
+    "docs/site_libs/quarto-html/tippy.umd.min.js": {
+      "checksum": "d828775275749701b48bd9d958814111"
+    },
+    "docs/site_libs/quarto-html/zenscroll-min.js": {
+      "checksum": "717c95813ddfc3d41e98c26642fc1372"
+    },
+    "docs/site_libs/quarto-nav/headroom.min.js": {
+      "checksum": "ace0360e576db9b6e7df48ac68ddbbf4"
+    },
+    "docs/site_libs/quarto-nav/quarto-nav.js": {
+      "checksum": "12d334846b27bdb493298c08277bdf7f"
+    },
+    "docs/site_libs/quarto-search/autocomplete.umd.js": {
+      "checksum": "c64544db941e048f2652217cb9a7f29c"
+    },
+    "docs/site_libs/quarto-search/fuse.min.js": {
+      "checksum": "de7d60e4a6881074275feca14b84a49d"
+    },
+    "docs/site_libs/quarto-search/quarto-search.js": {
+      "checksum": "bb16b7e73be13eba97c99d25b2a476b3"
+    },
+    "index.qmd": {
+      "checksum": "36938ab807178e22970593dbce57521c"
+    },
+    "LICENSE": {
+      "checksum": "63d8e120647694d4097eadcd831e0775"
+    },
+    "README.md": {
+      "checksum": "8f843bd8faab192faa94c5c3cd0d017b"
+    },
+    "README.qmd": {
+      "checksum": "b367f1f033b9a6962ba97fc80728a3ae"
+    },
+    "renv.lock": {
+      "checksum": "ba2483c24f95afe0d37495ad7a4cc2bb"
+    }
+  },
+  "users": null
+}
