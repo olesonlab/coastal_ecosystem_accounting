@@ -19,10 +19,22 @@ website:
         href: dmp.qmd
       - text: "Data Processing"
         menu:
-          - text: "Extents and Conditions"
-            href: data_processing/ecosystem‐change.qmd
-          - text: "Fisheries Valuation"
-            href: data_processing/fisheries‐valuation.qmd
+          - text: "<u>Global</u>"
+          - text: "Process MHI Moku Vectors"
+            href: data_processing/global/process_mhi_moku_vectors.qmd
+  
+          - text: "<br><u>Extents and Conditions</u>"
+          - text: "Overview"
+            href: data_processing/extents_and_conditions/extents_and_conditions.qmd
+          - text: "Process Coral Cover"
+            href: data_processing/extents_and_conditions/process_coral_cover.qmd
+  
+          - text: "<br><u>Fisheries Valuation</u>"
+          - text: "Overview"
+            href: data_processing/fisheries_valuation/fisheries_valuation.qmd
+          - text: "Process Catch Data"
+            href: data_processing/fisheries_valuation/process_catch_data.qmd
+  
       - text: "Applications"
         menu:
           - text: "Extents and Conditions"
@@ -38,6 +50,7 @@ format:
     theme: litera
     page-layout: full
     link-external-newwindow: true
+    code-fold: true
     code-overflow: wrap
     code-annotations: hover
     # code-tools: true
