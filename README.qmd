@@ -1,11 +1,13 @@
 ---
-format:
-  gfm:
-    toc: true
-    toc-title: "Contents"
+format: gfm
 ---
 
 # The Hawaiian Model: Assessing, Valuing, and Integrating Nature’s Services for Institutional Conservation Choices
+
+## Contents
+
+- [Project Structure](#project-structure)
+- [R Session](#r-session)
 
 ## Project Structure
 

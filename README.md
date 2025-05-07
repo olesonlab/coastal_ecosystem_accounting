@@ -1,12 +1,11 @@
 
 
-- [The Hawaiian Model: Assessing, Valuing, and Integrating Nature’s
-  Services for Institutional Conservation
-  Choices](#the-hawaiian-model-assessing-valuing-and-integrating-natures-services-for-institutional-conservation-choices)
-  - [Project Structure](#project-structure)
-  - [R Session](#r-session)
-
 # The Hawaiian Model: Assessing, Valuing, and Integrating Nature’s Services for Institutional Conservation Choices
+
+## Contents
+
+- [Project Structure](#project-structure)
+- [R Session](#r-session)
 
 ## Project Structure
 
