@@ -1,9 +1,11 @@
 ---
-title: "The Hawaiian Model: Assessing, Valuing, and Integrating Nature’s Services for Institutional Conservation Choices"
 format: gfm
 ---
 
-. 📂 coastal_ecosystem_accounting
+# The Hawaiian Model: Assessing, Valuing, and Integrating Nature’s Services for Institutional Conservation Choices
+
+```markdown
+📂 coastal_ecosystem_accounting
 ├── 📄 LICENSE
 ├── 📄 README.md
 ├── 📄 README.qmd
@@ -29,3 +31,4 @@ format: gfm
 ├── 📄 project.Rproj
 └── 📂 renv/
 └── 📄 renv.lock
+```
