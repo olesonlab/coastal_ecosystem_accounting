@@ -12,8 +12,8 @@
 └── 📂 apps/
 │  └── 📂 extents_and_conditions/
 │    ├── 📄 extents_and_conditions_app.qmd
-│  └── 📂 fisheries/
-│    ├── 📄 fisheries_app.qmd
+│  └── 📂 fisheries_valuation/
+│    ├── 📄 fisheries_valuation_app.qmd
 └── 📂 assets/
 │  └── 📂 logos/
 │    ├── 📄 uhm_logo.png
@@ -21,6 +21,8 @@
 │    ├── 📄 styles.scss
 └── 📂 data/
 └── 📂 data_processing/
+│  └── 📂 extents_and_conditions/
+│  └── 📂 fisheries_valuation/
 ├── 📄 dmp.qmd
 └── 📂 docs/
 └── 📂 documentation/
