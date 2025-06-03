@@ -1,0 +1,24 @@
+
+
+## Project Structure
+
+``` markdown
+. 📂 coastal_ecosystem_accounting
+├── 📄 LICENSE
+├── 📄 README.qmd
+├── 📄 coastal_ecosystem_accounting.Rproj
+└── 📂 data/
+│  └── 📂 processed/
+│    └── 📂 conditions/
+│    └── 📂 extents/
+│    └── 📂 fisheries_valuation/
+│    └── 📂 mhi_mokus/
+│    └── 📂 recreation/
+│  └── 📂 raw/
+│    └── 📂 conditions/
+│    └── 📂 extents/
+│    └── 📂 fisheries_valuation/
+│    └── 📂 mhi_mokus/
+│    └── 📂 recreation/
+└── 📂 documentation/
+```

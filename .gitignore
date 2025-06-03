@@ -2,3 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+
+# Ignore all data folders until we get full permission from 
+# collaborators to publish data
+**/data/
