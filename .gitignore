@@ -6,3 +6,6 @@
 # Ignore all data folders until we get full permission from 
 # collaborators to publish data
 **/data/
+
+# Ignore google docs--can't be pushed
+*.gdoc
