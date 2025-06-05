@@ -68,3 +68,13 @@
 ### Create Pull Request
 
 ### Merge Changes
+
+### If Applicable, Delete Remote Development Branch
+
+## Local - Git
+
+### Pull Remote Changes Locally
+
+### Move to Main Branch 
+
+### Delete Local Development Branch
