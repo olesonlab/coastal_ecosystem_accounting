@@ -1,17 +1,29 @@
 # Version Control
 
+## Remote - GitHub
 
+### Create Issue and Development Branch
 
-## Conventional Commits 
+## Local - Git
 
-### Template
+### Get Current Changes
+
+### Create New Local Branch
+
+### Do Work, Then Commit Changes
+
+#### Case When Work is Done on Wrong Branch
+
+### Conventional Commits 
+
+#### Template
 
 ```text
 # Bash code
 <commit type>(<scope>): <concise summary> (<issue/pr reference>)
 ```
 
-### Commit Types
+#### Commit Types
 
 | Use Case            | Type     | Description                                                | Example                                         |
 | ------------------- | -------- | ---------------------------------------------------------- | ----------------------------------------------- |
@@ -23,7 +35,7 @@
 | Documentation       | docs     | Documentation changes                                      | docs(readme): update setup instructions         |
 | Testing             | test     | Adding or fixing tests                                     | test(extent): add unit tests                    |
 
-### Common Scopes
+#### Common Scopes
 
 | Use Case                 | Scope               | Description                                                   | Example                                     |
 | ------------------------ | ------------------- | ------------------------------------------------------------- | ----------------------------------------------------------- |
@@ -39,7 +51,7 @@
 |                          | fisheries-valuation | Fisheries valuation modules and scripts                       | feat(fisheries-valuation): implement value estimation       |
 |                          | recreation          | Recreation modules and scripts                                | fix(recreation): correct visitor count aggregation          |
 
-### Issue/Pull Request Keywords
+#### Issue/Pull Request Keywords
 
 | Keyword     | Effect                      | When to Use                                                | Example                         |
 | ----------- | --------------------------- | ---------------------------------------------------------- | ---------------------------------------------- |
@@ -48,3 +60,11 @@
 | resolves #X | Closes issue/PR when merged | Synonym for `closes`; also closes the issue                | refactor(config): cleanup config (resolves #9) |
 | refs #X     | References issue/PR only    | Links the commit to the issue/PR but does **not** close it | chore(data): update dataset (refs #7)          |
 | see #X      | References issue/PR only    | Suggests related work or partial fixes                     | docs(readme): clarify intro (see #4)           |
+
+### Push to Remote Branch
+
+## Remote - GitHub
+
+### Create Pull Request
+
+### Merge Changes
