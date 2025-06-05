@@ -1,4 +1,6 @@
-# Git Usage
+# Version Control
+
+
 
 ## Conventional Commits 
 
@@ -31,7 +33,7 @@
 |                          | targets-pipeline    | Workflow pipeline setup, logic, configuration, or maintenance | fix(targets-pipeline): correct target dependency order      |
 | Data Management          | data                | Data import, processing, or storage                           | chore(data): process and update fisheries dataset           |
 | Documentation            | docs                | Documentation changes                                         | docs(docs): update installation instructions                |
-|               | git-usage | Git workflow, commit conventions, and usage documentation | docs(git-usage): add git usage guidelines document |
+|               | version-control | Version control workflow, git usage, and commit conventions documentation | docs(version-control): add version control guidelines document |
 | Domain Modules           | extent              | Extent modules and scripts                                    | refactor(extent): optimize extent calculation               |
 |                          | condition           | Condition modules and scripts                                 | feat(condition): add condition summary report               |
 |                          | fisheries-valuation | Fisheries valuation modules and scripts                       | feat(fisheries-valuation): implement value estimation       |
