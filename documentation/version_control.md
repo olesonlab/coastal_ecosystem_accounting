@@ -68,6 +68,11 @@
 ### Create Pull Request
 
 ### Merge Changes
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 
 ### If Applicable, Delete Remote Development Branch
 
@@ -77,4 +82,9 @@
 
 ### Move to Main Branch 
 
+<<<<<<< Updated upstream
 ### Delete Local Development Branch
+=======
+### Delete Local Development Branch
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
