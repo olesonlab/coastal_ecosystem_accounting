@@ -127,7 +127,7 @@ mapview::mapview(filled_mhi_mokus_sf, col.regions = "green", zcol = "name2") +
 
 export_to_gpkg <- function(sf, file_name, dir) {
   # Use glue to combine directory, file name, and extension correctly
-  st_write(sf, glue("{dir}/{file_name}.gpkg"), delete_dsn = TRUE)
+  sf::st_write(sf, glue("{dir}/{file_name}.gpkg"), delete_dsn = TRUE)
 }
 
 exported_mhi_mokus_sf_3563 <- export_to_gpkg(
