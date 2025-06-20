@@ -9,7 +9,7 @@ library(tarchetypes)
 library(here)
 
 # Set target options:
-tar_option_set(
+targets::tar_option_set(
   packages = c(
     "readxl", "fs", "here", "utils", "here", "glue", "sf",
     "dplyr", "tidyr", "janitor", "stringr"
