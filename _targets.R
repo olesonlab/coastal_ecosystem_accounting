@@ -49,7 +49,7 @@ tar_option_set(
 )
 
 # Run the R scripts in the R/ folder with your custom functions:
-tar_source()
+targets::tar_source()
 
 # Included all modular targets in the following pipeline:
 list(

@@ -3,7 +3,7 @@ processed_mhi_moku_layers <- list(
     # 1. Track files for updates ----------------------------------------------
     tar_target(
       mhi_moku_raw_dir,
-      here::here("data/raw/mhi_mokus"),
+      here::here("data/raw/spatial/mhi_mokus"),
       format = "file"
     ),
     tar_target(
@@ -62,7 +62,7 @@ processed_mhi_moku_layers <- list(
       export_to_gpkg(
         sf = filled_mhi_mokus_sf_3563, 
         file_name = paste0(get_todays_date(), "_tidied_mhi_mokus_epsg_3563"), 
-        dir = here::here("data/processed/mhi_mokus")
+        dir = here::here("data/processed/spatial")
       )
     ),
     tar_target(
@@ -70,7 +70,7 @@ processed_mhi_moku_layers <- list(
       export_to_gpkg(
         sf = filled_mhi_mokus_sf_4326, 
         file_name = paste0(get_todays_date(), "_tidied_mhi_mokus_epsg_4326"), 
-        dir = here::here("data/processed/mhi_mokus")
+        dir = here::here("data/processed/spatial")
       )
     ) 
   )
