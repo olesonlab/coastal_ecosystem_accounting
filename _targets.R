@@ -11,7 +11,7 @@ library(here)
 # Set target options:
 tar_option_set(
   packages = c(
-    "readxl", "fs", "here", "utils", "here", "glue",
+    "readxl", "fs", "here", "utils", "here", "glue", "sf",
     "dplyr", "tidyr", "janitor", "stringr"
   ) # Packages that your targets need for their tasks.
   # format = "qs", # Optionally set the default storage format. qs is fast.
@@ -53,5 +53,6 @@ tar_source()
 
 # Included all modular targets in the following pipeline:
 list(
-  processed_fisheries_valuation_data
+  processed_fisheries_valuation_data,
+  processed_mhi_moku_layers
 )
