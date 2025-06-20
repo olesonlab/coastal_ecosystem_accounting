@@ -54,5 +54,6 @@ targets::tar_source()
 # Included all modular targets in the following pipeline:
 list(
   processed_fisheries_valuation_data,
-  processed_mhi_moku_layers
+  processed_mhi_moku_layers,
+  processed_marine_et_layer
 )
