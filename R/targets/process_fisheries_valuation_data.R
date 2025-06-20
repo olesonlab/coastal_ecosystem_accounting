@@ -38,7 +38,6 @@ processed_fisheries_valuation_data <- list(
     tidied_noncomm_ev_df,
     tidy_noncomm_ev(raw_noncomm_ev_df)
   ),
-
   # 5. Export dfs as CSVs ---------------------------------------------------
   tar_target(
     exported_comm_ev_csv,

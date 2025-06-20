@@ -9,7 +9,7 @@ library(tarchetypes)
 library(here)
 
 # Set target options:
-tar_option_set(
+targets::tar_option_set(
   packages = c(
     "readxl", "fs", "here", "utils", "here", "glue", "sf",
     "dplyr", "tidyr", "janitor", "stringr"
@@ -49,7 +49,7 @@ tar_option_set(
 )
 
 # Run the R scripts in the R/ folder with your custom functions:
-tar_source()
+targets::tar_source()
 
 # Included all modular targets in the following pipeline:
 list(

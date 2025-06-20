@@ -7,7 +7,7 @@ import_shapefiles <- function(root_dir, shapefile_names) {
   names(sf_list) <- shapefile_names
   sf_list
 }
-mhi_moku_raw_dir <- here::here("data/raw/mhi_mokus")
+mhi_moku_raw_dir <- here::here("data/raw/spatial/mhi_mokus")
 mhi_moku_file_names <- list(
   "himarc_mhi_marine_mokus",
   "himarc_mhi_terrestrial_mokus"
@@ -127,16 +127,16 @@ mapview::mapview(filled_mhi_mokus_sf, col.regions = "green", zcol = "name2") +
 
 export_to_gpkg <- function(sf, file_name, dir) {
   # Use glue to combine directory, file name, and extension correctly
-  st_write(sf, glue("{dir}/{file_name}.gpkg"), delete_dsn = TRUE)
+  sf::st_write(sf, glue("{dir}/{file_name}.gpkg"), delete_dsn = TRUE)
 }
 
 exported_mhi_mokus_sf_3563 <- export_to_gpkg(
   sf = filled_mhi_mokus_sf_3563, 
   file_name = paste0(get_todays_date(), "_tidied_mhi_mokus_epsg_3563"), 
-  dir = here::here("data/processed/mhi_mokus")
+  dir = here::here("data/processed/spatial")
 )
 
 # Check -------------------------------------------------------------------
 
-check <- sf::st_read(here::here("data/processed/mhi_mokus/20250620_tidied_mhi_mokus_epsg_3563.gpkg"), quiet = TRUE)
+check <- sf::st_read(here::here("data/processed/spatial/20250620_tidied_mhi_mokus_epsg_3563.gpkg"), quiet = TRUE)
 mapview::mapview(check, zcol = "name2")
