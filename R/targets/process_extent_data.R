@@ -21,7 +21,7 @@ processed_extent_data <- list(
     imported_extent_dfs,
     purrr::map(
       extent_file_paths,
-      ~ readr::read_csv(.x, show_col_types = FALSE, progress = FALSE)
+      ~ import_csv(.x)
     ) |>
       rlang::set_names(names(extent_file_names))
   ),
