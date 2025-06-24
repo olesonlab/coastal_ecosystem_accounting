@@ -1,0 +1,35 @@
+/* Ensure dark/light mode button aligns properly */
+.main-header .navbar-nav {
+  align-items: center;
+}
+
+/* Fix controlbar text colors for light mode */
+.control-sidebar-light .nav-tabs .nav-link {
+  color: #333333 !important;
+}
+
+.control-sidebar-light .nav-tabs .nav-link:hover {
+  color: #0056b3 !important;
+}
+
+.control-sidebar-light .nav-tabs .nav-link.active {
+  color: #007bff !important;
+}
+
+/* Ensure all text in light mode controlbar is dark */
+.control-sidebar-light {
+  color: #333333 !important;
+}
+
+.control-sidebar-light label {
+  color: #333333 !important;
+}
+
+/* Keep dark mode controlbar text white */
+.control-sidebar-dark .nav-tabs .nav-link {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.control-sidebar-dark .nav-tabs .nav-link.active {
+  color: #ffffff !important;
+}
