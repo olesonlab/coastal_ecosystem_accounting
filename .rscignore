@@ -5,3 +5,12 @@
 .rhino
 .rscignore
 tests
+renv/
+data/
+_targets/
+*.tif
+*.dll
+*.so
+*.dylib
+documentation/
+README.*
