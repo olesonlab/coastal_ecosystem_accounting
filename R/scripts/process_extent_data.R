@@ -1,5 +1,5 @@
 
-# Import data -------------------------------------------------------------
+# Create file paths -------------------------------------------------------
 
 create_file_path <- function(dir, file_name, ext) {
   here::here(glue::glue("{dir}/{file_name}.{ext}"))
@@ -15,9 +15,23 @@ file_paths <- purrr::map_chr(
   ~ create_file_path("data/raw/extents", .x, "csv")
 )
 
+# Import data -------------------------------------------------------------
+
+import_csv <- function(file_path) {
+  if (!is.character(file_path) || length(file_path) != 1) {
+    stop("`file_path` must be a single character string.", call. = FALSE)
+  }
+  
+  readr::read_csv(
+    file = file_path,
+    show_col_types = FALSE,
+    progress = FALSE
+  )
+}
+
 extent_dfs <- purrr::map(
   file_paths,
-  ~ readr::read_csv(.x, show_col_types = FALSE, progress = FALSE)
+  ~ import_csv(.x)
 )
 
 # Tidy marine extents df --------------------------------------------------
