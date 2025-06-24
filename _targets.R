@@ -56,5 +56,6 @@ list(
   processed_fisheries_valuation_data,
   processed_mhi_moku_layers,
   processed_marine_et_layer,
-  processed_extent_data
+  processed_extent_data,
+  processed_conditions_data
 )
