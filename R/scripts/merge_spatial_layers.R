@@ -121,6 +121,29 @@ tree_cover_rainfall_per_moku <- dplyr::left_join(
 ) |> 
   sf::st_as_sf()
 
+# Re-project sfs ----------------------------------------------------------
+
+# Define the sf objects and their base names
+sf_objects <- list(
+  comm_ev_per_catch_area_et_sf = comm_ev_per_catch_area_et_sf,
+  noncomm_ev_per_island_et_sf = noncomm_ev_per_island_et_sf,
+  marine_extents_per_moku_et_sf = marine_extents_per_moku_et,
+  tree_cover_rainfall_per_moku_sf = tree_cover_rainfall_per_moku
+)
+
+# Define target CRS values
+target_crs_list <- c(3563, 4326)
+
+# Create all reprojected objects
+reprojected_objects <- purrr::map(target_crs_list, function(crs) {
+  purrr::map(sf_objects, ~ sf::st_transform(.x, crs = crs)) |>
+    purrr::set_names(paste0("reprojected_", names(sf_objects), "_", crs))
+}) |>
+  purrr::flatten()
+
+# Assign to global environment
+purrr::iwalk(reprojected_objects, ~ assign(.y, .x, envir = .GlobalEnv))
+
 # Export ------------------------------------------------------------------
 
 # Helper functions 
@@ -186,24 +209,22 @@ get_todays_date <- function() {
   base::format(base::Sys.Date(), "%Y%m%d")
 }
 
-# Named list
-sf_exports <- list(
-  "comm_ev_per_catch_area_et_sf" = comm_ev_per_catch_area_et_sf,
-  "noncomm_ev_per_island_et_sf" = noncomm_ev_per_island_et_sf,
-  "marine_extents_per_moku_et" = marine_extents_per_moku_et,
-  "tree_cover_rainfall_per_moku" = tree_cover_rainfall_per_moku
+# remove leading "reprojected_" from each name
+clean_names <- sub("^reprojected_", "", names(reprojected_objects))
+
+file_names <- paste0(
+  get_todays_date(), "_",
+  clean_names
 )
 
-file_names <- paste0(get_todays_date(), "_", names(sf_exports))
-
 export_to_gpkg(
-  layers = sf_exports,
+  layers = reprojected_objects,
   file_names = file_names,
   dir = here::here("data/processed/spatial")
 )
 
 # Check -------------------------------------------------------------------
 
-check <- sf::st_read(here::here("data/processed/spatial/20250625_marine_extents_per_moku_et.gpkg"), quiet = TRUE) 
+check <- sf::st_read(here::here("data/processed/spatial/20250625_reprojected_marine_extents_per_moku_et_sf_4326.gpkg"), quiet = TRUE) 
 
 mapview::mapview(check, zcol = "ecosystem_type")
