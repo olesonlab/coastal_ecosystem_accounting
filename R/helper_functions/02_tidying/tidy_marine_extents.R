@@ -39,7 +39,7 @@ tidy_marine_extents <- function(raw_df) {
     dplyr::select(
       "ecosystem_type" = value,
       name2 = moku,
-      area = area_km_2
+      area_km2 = area_km_2
     ) |>
     # Replicate rows for target analysis years
     tidyr::crossing(year = c(2013, 2016, 2019)) |>

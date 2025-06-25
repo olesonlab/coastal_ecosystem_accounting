@@ -40,7 +40,7 @@ tidy_terrestrial_extents <- function(raw_df) {
     tidyr::pivot_longer(
       cols = -c(name2, year),
       names_to = "ecosystem_type",
-      values_to = "area"
+      values_to = "area_km2"
     ) |> 
     dplyr::mutate(
       # Normalize some special cases
