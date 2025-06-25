@@ -35,6 +35,8 @@ tidy_fish_catch_areas_sf <- function(raw_sf) {
       type %in% c("Island", "MHI Inshore", "MHI Coastal"),
       island %in% c(
         "Kaho'olawe", "Lana'i", "Maui", "O'ahu", "Ni'ihau", "Kauai", "Hawai'i", "Moloka'i"
-      ) | is.na(island)
+      ) | is.na(island),
+      # Small islands near Oahu
+      !(type == "Island" & is.na(island))
     )
 }

@@ -52,7 +52,7 @@ raw_condition_dfs <- purrr::map(
 tidy_tree_cover_rainfall_data <- function(raw_tree_cover_rainfall_90_13_19_df, raw_tree_cover_rainfall_16_df) {
   
   # 1. Clean and standardize datasets
-  tidied_tree_cover_rainfall_90_13_19 <- raw_condition_dfs$tree_cover_rainfall_90_13_19 |>
+  tidied_tree_cover_rainfall_90_13_19 <- raw_tree_cover_rainfall_90_13_19_df |>
     janitor::clean_names() |>
     dplyr::rename(
       mean_rainfall = rain_avg,
@@ -60,7 +60,7 @@ tidy_tree_cover_rainfall_data <- function(raw_tree_cover_rainfall_90_13_19_df, r
     ) |>
     dplyr::select(-c(x, x_1319))
   
-  tidied_tree_cover_rainfall_16 <- raw_condition_dfs$tree_cover_rainfall_16 |>
+  tidied_tree_cover_rainfall_16 <- raw_tree_cover_rainfall_16_df |>
     janitor::clean_names() |>
     dplyr::rename(name2 = moku) |>
     dplyr::mutate(year = 2016)
@@ -68,71 +68,89 @@ tidy_tree_cover_rainfall_data <- function(raw_tree_cover_rainfall_90_13_19_df, r
   merged_tree_cover_rainfall_df <- dplyr::bind_rows(
     tidied_tree_cover_rainfall_90_13_19,
     tidied_tree_cover_rainfall_16
-  )
+  ) |> 
+    dplyr::rename(
+      "mean_rainfall_mm" = mean_rainfall,
+      "max_rainfall_mm" = max_rainfall
+    )
   
   # 2. Combine and clean merged dataset
   mean_max_tree_cover_rainfall <- merged_tree_cover_rainfall_df |> 
+    # Niihau doesn't have data (n = 6)
     tidyr::drop_na() |>
     tidyr::pivot_wider(
       names_from = year,
-      values_from = c("mean_rainfall", "max_rainfall")
+      values_from = c("mean_rainfall_mm", "max_rainfall_mm")
     ) |>
     tidyr::pivot_longer(
       cols = -name2,
       names_to = "metric",
       values_to = "value"
-    )
+    ) |> 
+    # Niihau and some mokus on Kahoolawe do not have data (n = 35)
+    dplyr::filter(value != 0)
   
   # 3. Compute difference from 1990 baseline
   baseline_change_tree_cover_rainfall <- merged_tree_cover_rainfall_df |>
-    dplyr::select(-max_rainfall) |>
+    dplyr::select(-max_rainfall_mm) |>
     tidyr::pivot_wider(
       names_from = year,
-      values_from = mean_rainfall,
-      names_prefix = "mean_rainfall_"
+      values_from = mean_rainfall_mm,
+      names_prefix = "mean_rainfall_mm_"
     ) |>
     dplyr::mutate(
       # Difference between 1990 baseline mean rainfall (mm) and the mean rainfall
       # (mm) in recent years (2013, 2016, and 2019) per moku
-      three_yr_avg = (mean_rainfall_2013 + mean_rainfall_2016 + mean_rainfall_2019) / 3,
-      baseline_diff = three_yr_avg - mean_rainfall_1990
+      three_yr_avg_mm = (mean_rainfall_mm_2013 + mean_rainfall_mm_2016 + mean_rainfall_mm_2019) / 3,
+      baseline_diff_mm = three_yr_avg_mm - mean_rainfall_mm_1990
     ) |> 
     dplyr::select(-starts_with("mean")) |>
     tidyr::pivot_longer(
       cols = -name2,
       names_to = "metric",
       values_to = "value"
-    )
+    ) |> 
+    # Niihau doesn't have any data (n = 6)
+    tidyr::drop_na()
   
   # 4. Compute year-over-year rainfall changes
-  change_summary_tree_cover_rainfall <- merged_tree_cover_rainfall_df |>
-    dplyr::select(-max_rainfall) |> 
+  change_summary_tree_cover_rainfall <- 
+    merged_tree_cover_rainfall_df |>
+    # drop the precomputed max rainfall column
+    dplyr::select(-max_rainfall_mm) |> 
+    # Niihau doesn't have data (n = 3)
+    tidyr::drop_na() |> 
+    # Niihau and some mokus on Kahoolawe do not have data (n = 15)
+    dplyr::filter(mean_rainfall_mm != 0) |> 
+    # pivot years into wide format
     tidyr::pivot_wider(
-      names_from = year,
-      values_from = mean_rainfall,
-      names_prefix = "mean_rainfall_"
+      names_from   = year,
+      values_from  = mean_rainfall_mm,
+      names_prefix = "mean_rainfall_mm_"
     ) |>
+    # Maybe not as important to include here; included in baseline summaries
+    dplyr::select(-mean_rainfall_mm_1990) |>
     dplyr::mutate(
-      # Difference in mean rainfall (mm) between two years per each moku
-      change_2013_2019 = mean_rainfall_2019 - mean_rainfall_2013,
-      change_2013_2016 = mean_rainfall_2016 - mean_rainfall_2013,
-      change_2016_2019 = mean_rainfall_2019 - mean_rainfall_2016,
-      # 1 = positive, -1 = negative, 0 = no change
-      change_direction = dplyr::case_when(
-        change_2013_2019 > 0 ~ 1,
-        change_2013_2019 < 0 ~ -1,
-        change_2013_2016 > 0 ~ 1,
-        change_2013_2016 < 0 ~ -1,
-        change_2016_2019 > 0 ~ 1,
-        change_2016_2019 < 0 ~ -1,
-        TRUE ~ 0
-      )
+      # absolute changes in mean rainfall (mm) for each interval
+      change_mm_2013_2016 = mean_rainfall_mm_2016 - mean_rainfall_mm_2013,
+      change_mm_2013_2019 = mean_rainfall_mm_2019 - mean_rainfall_mm_2013,
+      change_mm_2016_2019 = mean_rainfall_mm_2019 - mean_rainfall_mm_2016,
+      # change directions: -1 = decrease, 0 = no change, +1 = increase
+      dir_2013_2016 = sign(change_mm_2013_2016),
+      dir_2013_2019 = sign(change_mm_2013_2019),
+      dir_2016_2019 = sign(change_mm_2016_2019),
+      # percent changes relative to the earlier year
+      pct_change_2013_2016 = (change_mm_2013_2016 / mean_rainfall_mm_2013) * 100,
+      pct_change_2013_2019 = (change_mm_2013_2019 / mean_rainfall_mm_2013) * 100,
+      pct_change_2016_2019 = (change_mm_2016_2019 / mean_rainfall_mm_2016) * 100
     ) |>
     tidyr::pivot_longer(
       cols = -name2,
       names_to = "metric",
       values_to = "value"
-    )
+    ) |> 
+    # Koolau, Kahoolawe doesn't have any data (n = 11)
+    tidyr::drop_na()
   
   tidied_tree_cover_rainfall_df <- dplyr::bind_rows(
     mean_max_tree_cover_rainfall,
@@ -143,7 +161,7 @@ tidy_tree_cover_rainfall_data <- function(raw_tree_cover_rainfall_90_13_19_df, r
   return(tidied_tree_cover_rainfall_df)
 }
 
-tidied_tree_cover_rainfall_df <- tidy_tree_cover_rainfall_data(
+tree_cover_rainfall_changes_df <- tidy_tree_cover_rainfall_data(
   raw_tree_cover_rainfall_90_13_19_df = raw_condition_dfs$tree_cover_rainfall_90_13_19,
   raw_tree_cover_rainfall_16_df = raw_condition_dfs$tree_cover_rainfall_16
 ) 
@@ -164,7 +182,7 @@ export_to_csv <- function(df, dir, file_name) {
 
 # List of dfs to export
 dfs_to_export <- list(
-  tidied_tree_cover_rainfall_df = tidied_tree_cover_rainfall_df
+  "tree_cover_rainfall_changes" = tree_cover_rainfall_changes_df
 )
 
 # Iteratively export dfs

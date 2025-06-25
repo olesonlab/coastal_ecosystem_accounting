@@ -57,5 +57,6 @@ list(
   processed_mhi_moku_layers,
   processed_marine_et_layer,
   processed_extent_data,
-  processed_conditions_data
+  processed_conditions_data,
+  merged_spatial_layers
 )
