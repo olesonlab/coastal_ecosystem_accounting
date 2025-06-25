@@ -161,7 +161,7 @@ tidy_tree_cover_rainfall_data <- function(raw_tree_cover_rainfall_90_13_19_df, r
   return(tidied_tree_cover_rainfall_df)
 }
 
-tidied_tree_cover_rainfall_df <- tidy_tree_cover_rainfall_data(
+tree_cover_rainfall_changes_df <- tidy_tree_cover_rainfall_data(
   raw_tree_cover_rainfall_90_13_19_df = raw_condition_dfs$tree_cover_rainfall_90_13_19,
   raw_tree_cover_rainfall_16_df = raw_condition_dfs$tree_cover_rainfall_16
 ) 
@@ -182,7 +182,7 @@ export_to_csv <- function(df, dir, file_name) {
 
 # List of dfs to export
 dfs_to_export <- list(
-  tidied_tree_cover_rainfall_df = tidied_tree_cover_rainfall_df
+  "tree_cover_rainfall_changes" = tree_cover_rainfall_changes_df
 )
 
 # Iteratively export dfs
