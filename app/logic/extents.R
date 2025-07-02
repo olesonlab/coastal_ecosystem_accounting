@@ -101,57 +101,6 @@ fetch_extent_areas_data <- function(all_data) {
   return(data)
 }
 
-# #' @export
-extent_chart_hc <- function(all_data,
-                            islands            = NULL,
-                            mokus              = NULL,
-                            realms             = NULL,
-                            ecosystem_types    = NULL,
-                            years              = NULL,
-                            chart_title_prefix = "Ecosystem Areas by Moku") {
-
-  # 1) Fetch & filter
-  df <- fetch_extent_areas_data(all_data) |>
-    dplyr::filter(
-      is.null(islands)         | island_olelo   %in% islands,
-      is.null(mokus)           | moku_olelo     %in% mokus,
-      is.null(realms)          | realm          %in% realms,
-      is.null(ecosystem_types) | ecosystem_type %in% ecosystem_types,
-      is.null(years)           | year           %in% years
-    )
-
-  # 2) Early exit
-  if (nrow(df) == 0) {
-    return(
-      highcharter::highchart() |>
-        highcharter::hc_title(text = "No data matches the selected filters")
-    )
-  }
-
-  # 3) Make one chart per island
-  charts <- map(
-    unique(df$island_olelo),
-    function(isl) {
-      sub <- df[df$island_olelo == isl, ]
-      highcharter::highchart() |>
-        highcharter::hc_chart(type = "column") |>
-        highcharter::hc_title(text = paste(chart_title_prefix, "—", isl)) |>
-        highcharter::hc_xAxis(categories = sub$moku_olelo, title = list(text = "Moku")) |>
-        highcharter::hc_yAxis(title = list(text = "Area (km²)")) |>
-        highcharter::hc_add_series(
-          name = as.character(sub$year),
-          data = sub$area_km2,
-          colorByPoint = FALSE
-        ) |>
-        highcharter::hc_plotOptions(
-          column = list(stacking = "normal")
-        ) 
-    }
-  )
-
-  # 4) Arrange in 2 columns
-  highcharter::hw_grid(charts, ncol = 2)
-}
 
 # # app/logic/extents.R
 # box::use(

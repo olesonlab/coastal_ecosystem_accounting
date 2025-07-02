@@ -26,7 +26,6 @@ server <- function(id) {
     global_filter_values <- layout$server("layout", all_data)
     rainfall_change_summaries_table$server("rainfall_change_summaries_table", all_data) 
     extents_table$server("table", all_data)
-    # extent_area_chart$server("extent_chart", all_data, global_filter_values)
   })
 }
 

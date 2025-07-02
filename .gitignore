@@ -6,6 +6,8 @@
 # Ignore all data folders until we get full permission from 
 # collaborators to publish data
 **/data/
+!data/processed/shiny/
+!data/processed/shiny/**
 
 # Ignore google docs--can't be pushed
 *.gdoc

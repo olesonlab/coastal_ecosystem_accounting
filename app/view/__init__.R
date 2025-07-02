@@ -10,5 +10,4 @@ box::use(
   # app/view/comm_ev_table,
   app/view/rainfall_change_summaries_table,
   app/view/extents_table
-  # app/view/extent_area_chart
 )

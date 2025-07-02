@@ -5,6 +5,9 @@ account: 30z419-kirsten0l0oleson
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 14985098
-bundleId: 10555620
+bundleId: 10555810
 url: https://olesonlab.shinyapps.io/coastal-ecosystem-accounting-dashboard/
 version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .Rprofile|_targets.R|dependencies.R|documentation/Dashboard Feedback.gdoc|documentation/Resources.gdoc|documentation/version_control.md|documentation/Workflow.gdoc|LICENSE|README.md|README.qmd|rhino.yml|_targets|junk|R|scripts

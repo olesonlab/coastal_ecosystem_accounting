@@ -43,7 +43,6 @@ box::use(
       theme,
       rainfall_change_summaries_table,
       extents_table
-      # extent_area_chart
     ],
 )
 
