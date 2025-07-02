@@ -2,13 +2,14 @@
 # File path(s) ------------------------------------------------------------
 
 file_paths <- c(
-  # EV data
+  # Fisheries valuation data
   "noncomm_ev" = "data/processed/fisheries_valuation/20250619_tidied_noncomm_ev.csv",
   "comm_ev" = "data/processed/fisheries_valuation/20250619_tidied_comm_ev.csv",
   # Extents data
   "extents" = "data/processed/extents/20250625_extent_changes.csv",
   # Conditions data  
-  "tree_cover_rainfall" = "data/processed/conditions/20250625_tree_cover_rainfall_changes.csv",
+  "terrestrial_conditions" = "data/processed/conditions/20250701_summarized_terrestrial_conditions.csv",
+  "coral_condition_indicators" = "data/processed/conditions/20250701_tidied_coral_condition_indicators.csv",
   # Spatial layers
   "classified_marine_ets" = "data/processed/spatial/20250625_classified_marine_ets_epsg_3563.gpkg",
   "reclassified_marine_ets" = "data/processed/spatial/20250625_reclassified_marine_ets_epsg_3563.gpkg",
@@ -32,6 +33,7 @@ import_csv <- function(file_path) {
     progress = FALSE
   )
 }
+
 import_gpkg <- function(file_path) {
   if (!is.character(file_path) || length(file_path) != 1) {
     stop("`file_path` must be a single character string.", call. = FALSE)
@@ -91,8 +93,9 @@ noncomm_ev_per_island_et_sf <- sf::st_intersection(
 #   mapview::mapview(dfs$fish_catch_areas, col.region = "salmon") +
 #   mapview::mapview(comm_ev_per_catch_area_et_sf, zcol = "ecosystem_type")
 
-# mapview::mapview(comm_ev_per_catch_area_et_sf, zcol = "ecosystem_type") +
-#   mapview::mapview(noncomm_ev_per_island_et_sf, zcol = "ecosystem_type")
+mapview::mapview(comm_ev_per_catch_area_et_sf, zcol = "ecosystem_type")
+  
+mapview::mapview(noncomm_ev_per_island_et_sf, zcol = "ecosystem_type")
 
 
 # Merge extents to classified marine et raster ----------------------------
@@ -126,9 +129,9 @@ tree_cover_rainfall_per_moku <- dplyr::left_join(
 # Define the sf objects and their base names
 sf_objects <- list(
   comm_ev_per_catch_area_et_sf = comm_ev_per_catch_area_et_sf,
-  noncomm_ev_per_island_et_sf = noncomm_ev_per_island_et_sf,
-  marine_extents_per_moku_et_sf = marine_extents_per_moku_et,
-  tree_cover_rainfall_per_moku_sf = tree_cover_rainfall_per_moku
+  noncomm_ev_per_island_et_sf = noncomm_ev_per_island_et_sf
+  # marine_extents_per_moku_et_sf = marine_extents_per_moku_et,
+  # tree_cover_rainfall_per_moku_sf = tree_cover_rainfall_per_moku
 )
 
 # Define target CRS values
@@ -225,6 +228,67 @@ export_to_gpkg(
 
 # Check -------------------------------------------------------------------
 
-check <- sf::st_read(here::here("data/processed/spatial/20250625_reprojected_marine_extents_per_moku_et_sf_4326.gpkg"), quiet = TRUE) 
+check <- sf::st_read(here::here("data/processed/spatial/20250625_comm_ev_per_catch_area_et_sf_4326.gpkg"), quiet = TRUE) 
 
-mapview::mapview(check, zcol = "ecosystem_type")
+mapview::mapview(check)
+
+
+
+
+
+
+
+
+# 1. Filter to 2019 Pelagics in Reef and aggregate per moku
+df_map <- reprojected_comm_ev_per_catch_area_et_sf_4326 |>
+  dplyr::filter(
+    year           == 2019,
+    species_group  == "Pelagics",
+    ecosystem_type == "Reef"
+  ) |>
+  dplyr::group_by(moku) |>
+  dplyr::summarise(
+    exchange_value = sum(exchange_value, na.rm = TRUE),
+    geometry       = sf::st_union(geom),
+    .groups        = "drop"
+  ) |>
+  sf::st_drop_geometry()
+
+# 2. Register the sf object globally as "moku_map"
+echarts4r::e_map_register_p(df_map, "moku_map")
+
+# 3. Plot the choropleth
+df_map |>
+  sf::st_drop_geometry() |>
+  echarts4r::e_charts(moku) |>
+  echarts4r::e_map(
+    serie = exchange_value,
+    map   = "moku_map",
+    name  = "Exchange Value"
+  ) |>
+  echarts4r::e_visual_map(
+    serie  = exchange_value,
+    orient = "vertical",
+    left   = "left"
+  ) |>
+  echarts4r::e_title("2019 Pelagics Exchange Value by Moku")
+
+choropleth <- data.frame(
+  countries = c(
+    "France",
+    "Brazil",
+    "China",
+    "Russia",
+    "Canada",
+    "India",
+    "United States",
+    "Argentina",
+    "Australia"
+  ),
+  values = round(runif(9, 10, 25))
+)
+
+choropleth |>
+  echarts4r::e_charts(countries) |>
+  echarts4r::e_map(values) |>
+  echarts4r::e_visual_map(min = 10, max = 25)

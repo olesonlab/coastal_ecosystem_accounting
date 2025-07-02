@@ -20,7 +20,7 @@ processed_marine_et_layer <- list(
     reclassify_raster(raw_marine_ets_rast)
   ),
   # Convert to vector for viz -----------------------------------------------
-  tar_taget(
+  tar_target(
     classified_marine_ets_sf,
     convert_rast_to_sf(reclassified_marine_ets_rast)
   ),

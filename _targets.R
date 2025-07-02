@@ -12,7 +12,8 @@ library(here)
 targets::tar_option_set(
   packages = c(
     "readxl", "fs", "here", "utils", "here", "glue", "sf",
-    "dplyr", "tidyr", "janitor", "stringr"
+    "dplyr", "tidyr", "janitor", "stringr", "readr", "arrow",
+    "tidyr", "terra"
   ) # Packages that your targets need for their tasks.
   # format = "qs", # Optionally set the default storage format. qs is fast.
   #
@@ -53,10 +54,10 @@ targets::tar_source()
 
 # Included all modular targets in the following pipeline:
 list(
-  processed_fisheries_valuation_data,
-  processed_mhi_moku_layers,
-  processed_marine_et_layer,
-  processed_extent_data,
-  processed_conditions_data,
-  merged_spatial_layers
+  # processed_fisheries_valuation_data,
+  # processed_mhi_moku_layers,
+  # processed_marine_et_layer,
+  # processed_extent_data,
+  processed_condition_indicators
+  # merged_spatial_layers
 )
