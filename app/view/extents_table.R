@@ -1,3 +1,4 @@
+# app/view/extents_table.R
 # Import functions from specific libraries
 box::use(
   shiny[moduleServer, NS],
@@ -6,7 +7,7 @@ box::use(
 
 # Import rhino module
 box::use(
-  app/logic/demo,
+  app/logic/extents,
 )
 
 #' @export
@@ -16,10 +17,10 @@ ui <- function(id) {
 }
 
 #' @export
-server <- function(id, data) {
+server <- function(id, all_data) {
   moduleServer(id, function(input, output, session) {
     output$table <- renderReactable(
-      demo$table(data())
+      extents$extents_table(all_data)
     )
   })
 }

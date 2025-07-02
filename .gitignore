@@ -9,3 +9,5 @@
 
 # Ignore google docs--can't be pushed
 *.gdoc
+
+junk/

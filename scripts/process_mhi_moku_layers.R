@@ -119,11 +119,21 @@ filled_mhi_mokus_sf <- fill_gaps_between_sfs(
   group_col = "name2"
 )
 
+moku_names_formatted <- filled_mhi_mokus_sf |> sf::st_drop_geometry() 
+
 mapview::mapview(filled_mhi_mokus_sf, col.regions = "green", zcol = "name2") +
   mapview::mapview(reprojected_marine_mhi_mokus_sf, col.regions = "blue") +
   mapview::mapview(reprojected_terrestrial_mhi_mokus_sf, col.regions = "red")
 
 # Export to gpkg ----------------------------------------------------------
+
+create_file_path <- function(dir, file_name, ext) {
+  here::here(glue::glue("{dir}/{file_name}.{ext}"))
+}
+
+get_todays_date <- function() {
+  base::format(base::Sys.Date(), "%Y%m%d")
+}
 
 export_to_gpkg <- function(sf, file_name, dir) {
   # Use glue to combine directory, file name, and extension correctly
@@ -134,6 +144,18 @@ exported_mhi_mokus_sf_3563 <- export_to_gpkg(
   sf = filled_mhi_mokus_sf_3563, 
   file_name = paste0(get_todays_date(), "_tidied_mhi_mokus_epsg_3563"), 
   dir = here::here("data/processed/spatial")
+)
+
+export_to_csv <- function(df, dir, file_name) {
+  file_path <- create_file_path(dir = dir, file_name = file_name, ext = "csv")
+  utils::write.csv(df, file = file_path, row.names = FALSE)
+  invisible(file_path)
+}
+
+export_to_csv(
+  moku_names_formatted,
+  dir = "data/processed/shiny",
+  file_name = "moku_names_formatted"
 )
 
 # Check -------------------------------------------------------------------
